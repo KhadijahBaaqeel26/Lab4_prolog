@@ -1,0 +1,41 @@
+Lab 4 - Task 1: Unification
+
+1) Query: house = house.
+Result: true.
+Reason: The atom house matches itself.
+
+2) Query: house = abc.
+Result: false.
+Reason: house and abc are different atoms.
+
+3) Query: edge(a,b) = edge(C,b).
+Result: C = a.
+Reason: The first position gives C = a. The second position already matches.
+
+4) Query: edge(a,d) = edge(C,B).
+Result: C = a, B = d.
+Reason: Matching the two positions gives a for C and d for B.
+
+5) Query: edge(C,B) = edge(a,d).
+Result: C = a, B = d.
+Reason: Reversing the sides does not change the matching values.
+
+6) Query: edge(A,f(g,h)) = edge(a,B).
+Result: A = a, B = f(g,h).
+Reason: A matches a, while B matches the entire term f(g,h).
+
+7) Query: edge(A,A) = edge(b,c).
+Result: false.
+Reason: Both positions use A, but b and c cannot be its value at the same time.
+
+8) Query: edge(A,A) = edge(b,b).
+Result: A = b.
+Reason: Using b for A makes both positions match.
+
+9) Query: A = B, B = f.
+Result: A = B, B = f.
+Reason: A and B are linked, so both have the value f.
+
+10) Query: A = B, B = f, A = e.
+Result: false.
+Reason: A must be f after the first two goals, so it cannot also match e.
